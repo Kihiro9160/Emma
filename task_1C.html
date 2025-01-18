@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<!-- ドキュメントタイプを宣言する(html5) -->
+<html lang='ja'>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><!-- 文字コード指定？ -->
+    <meta http-equiv="Content-Script-Type" content="text/javascript"><!-- デフォルトのスクリプト言語の指定 -->
+    <meta http-equiv="pragma" content="non-cache"><!-- キャッシュ見ない -->
+    <meta http-equiv="cache-control" content="non-cache"><!-- キャッシュ見ない -->
+    <meta http-equiv="expires" content="0"><!-- キャッシュ見ない -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenEMMA</title>
+
+    <!-- css読み込み -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/leaflet.emmaLayer.css">
+
+    <!-- jquery -->
+    <script type="text/javascript" src="scripts/lib/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/jquery.exresize.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <!-- Yahoo!ローカルサーチAPI -->
+    <script src="http://js.api.olp.yahooapis.jp/OpenLocalPlatform/V1/jsapi?appid=dj0zaiZpPUZaNld4QmQ5eTJRSCZzPWNvbnN1bWVyc2VjcmV0Jng9OGI-"></script>
+
+    <!-- スライドメニュー -->
+    <script type="text/javascript" src="scripts/lib/jquery.mmenu.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
+
+    <!-- スライドショー -->
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+    <script type="text/javascript" src="scripts/lib/slick.min.js"></script>
+
+
+    <!-- スマホでDraggableを使えるようにするためのプラグイン -->
+    <script type="text/javascript" src="scripts/lib/jquery.ui.touch-punch.js"></script>
+
+
+
+
+
+    <!-- global number -->
+    <script type="text/javascript" src="scripts/globalStaticNumber.js"></script>
+    <!-- geojson -->
+    <script type="text/javascript" src="scripts/geoJson.js"></script>
+
+    <!-- デバッグ用 -->
+    <!--<script type="text/javascript" src="scripts/pMethod.js"></script>-->
+    <!-- leaflet-->
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <script src="scripts/lib/leaflet.js"></script>
+    <script type="text/javascript" src="scripts/lib/leaflet.ajax.min.js"></script>
+
+
+    <!-- 独自処理 -->
+    <script type="text/javascript" src="scripts/init.js"></script>	<!-- 初期処理 -->
+    <script type="text/javascript" src="scripts/initLeafletMap.js"></script>	<!-- 初期処理 -->
+
+
+    <script type="text/javascript" src="scripts/drawMap.js"></script>	<!-- 地図描画処理 -->
+    <script type="text/javascript" src="scripts/latLngMercatorUtility.js"></script>	<!-- メルカトル緯度経度変換 -->
+    <script type="text/javascript" src="scripts/convertElasticPoints.js"></script>	<!-- 緯度経度座標の任意の点や線などをglue上に描画できるように変換するクラス -->
+    <script type="text/javascript" src="scripts/elasticPoint.js"></script>	<!-- glue領域の点を変形させる処理に関するクラス -->
+
+
+    <script type="text/javascript" src="scripts/location.js"></script>	<!-- 現在地を表示 -->
+    <script type="text/javascript" src="scripts/yahooLocalSearchAPI.js"></script>	<!-- Yahoo!ローカルサーチAPI -->
+    <!-- イベント取得 -->
+    <script type="text/javascript" src="scripts/event/resizeEvent.js"></script>
+    <script type="text/javascript" src="scripts/event/dragDropEvent.js"></script>
+    <script type="text/javascript" src="scripts/event/searchEvent.js"></script>
+    <script type="text/javascript" src="scripts/event/mouseMoveEvent.js"></script>
+    <script type="text/javascript" src="scripts/event/buttonEvent.js"></script>
+    <script type="text/javascript" src="scripts/event/holdEvent.js"></script>
+
+
+    <script type="text/javascript" src="scripts/leaflet.emmaLayer_c.js"></script>	<!-- emmaLayer -->
+
+    <script type="text/javascript" src="scripts/lib/leaflet.polylineoffset.js"></script>
+    <script type="text/javascript" src="scripts/lib/leaflet.textpath.js"></script>
+    <script type="text/javascript" src="scripts/lib/leaflet.edgebuffer.js"></script>
+        <!--<script type="text/javascript" src="scripts/lib/AnimatedMarker.js"></script>-->
+
+    <!-- toastr -->
+    <!-- Copyright © 2012-2015 -->
+    <!-- https://github.com/CodeSeven/toastr -->
+    <link rel='stylesheet' href='css/toastr.min.css' />
+    <script src='scripts/lib/toastr.min.js'></script>
+
+
+    <!-- FPS計測用ツール -->
+    <script type="text/javascript" src="scripts/lib/stats.js"></script>
+
+    <script>
+        $(function () {
+            $("#menu").mmenu({
+                position: "left"
+            });
+            $("#menu").mmenu({
+                slidingSubmenus: false
+            });
+            $('#map_element leaflet-control-container').prependTo("#layer1");
+        });
+        $(function () {
+            // 初期
+            $('#value').html($('#glue_slider').val());
+            $('#glue_slider').change(function () {
+                // 変動
+                $('#value').html($(this).val());
+                GLUE_UPDATE_INTARVAL = $('#glue_slider').val();
+            });
+        });
+    </script>
+
+    <style>
+        /* カスタムコンテキストメニューのスタイル */
+        #customContextMenu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+        }
+        #customContextMenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #customContextMenu li {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        #customContextMenu li:hover {
+            background-color: #eee;
+        }
+
+        #customContextMenu2 {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+        }
+        #customContextMenu2 ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #customContextMenu2 li {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        #customContextMenu2 li:hover {
+            background-color: #eee;
+        }
+    </style>
+
+    <!-- Lightbox -->
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    <script type="text/javascript" src="scripts/lib/lightbox.js"></script>
+
+</head>
+
+<body id='body_element' style="margin: 0px 0px 0px 0px" oncontextmenu="return false;">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded"  style="margin: 0px 0px 0px 0px;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">OpenEMMA</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        施設検索
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" onclick="g_location.goToNagakute()" href="#">長久手会場</a>
+                        <a class="dropdown-item" onclick="g_location.goToSeto()" href="#">瀬戸会場</a>
+                        <a class="dropdown-item" onclick="g_location.goToMeikou()" href="#">名古屋工業大学</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <!-- Button trigger modal -->
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="modal" data-target="#optionModal">
+                        オプション
+                    </a>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="optionModal" tabindex="-1" role="dialog" aria-labelledby="optionModalTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="optionModalTitle">オプション</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <ul class="list-group">
+                                            <!--<li class="list-group-item">左クリック作成物</li>
+                                            <li class="list-group-item">
+                                                <select id="left_click">
+                                                    <option value="none" selected>------</option>
+                                                    <option value="marker">マーカー</option>
+                                                    <option value="magnifying_glass">可動Focus</option>
+                                                    <option value="fixed_magnifying_glass">固定Focus</option>
+                                                </select>
+
+                                            </li>-->
+
+                                            <li class="list-group-item">glue処理</li>
+                                            <li class="list-group-item">
+                                                <select name="glue_style">
+                                                    <option value="roadGlueCar">roadGlueCar</option>
+                                                    <option value="roadGlueAll">roadGlueAll</option>
+                                                    <option value="strokeGlue">strokeGlue</option>
+                                                    <option value="strokeGlueConn" selected>strokeGlueConn</option>
+                                                    <option value="mitinari">mitinari</option>
+                                                    <option value="drawGlue_v2">drawGlue_v2</option>
+                                                </select>
+
+                                            </li>
+
+                                            <li class="list-group-item">サイズ変更時時の動作</li>
+                                            <li class="list-group-item">
+                                                <select id="expansion_focus_glue">
+                                                    <option value="ratio" selected>(test)focusとglueの比を変えずに扱う</option>
+                                                    <option value="all_together">focusとglueを同時に扱う</option>
+                                                    <option value="independently">focusとglueを別々に扱う</option>
+                                                </select>
+
+                                            </li>
+
+                                            <li class="list-group-item">衝突時の動作</li>
+                                            <li class="list-group-item">
+                                                <select id="collision_focus_glue">
+                                                    <option value="all_together">サイズ変更</option>
+                                                    <option value="changeScale" selected>Contextを中心に縮尺変更</option>
+                                                    <option value="changeScale2">操作Focusの相対位置が変化しない縮尺変更</option>
+                                                </select>
+
+                                            </li>
+
+                                            <li class="list-group-item">Glue更新間隔[ms]</li>
+                                            <li class="list-group-item">
+                                                <input id="glue_slider" type="range" value="100" min="100" max="1000" step="100" />
+                                                <span id="value"></span>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" onclick="g_drawMap.eraseAllFocus()">Focus全削除</button>
+                                        <button type="button" class="btn btn-secondary" onclick="g_drawMap.eraseAllLayer()">レイヤー全削除</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 地図パネル -->
+    <div id='map_panel'>
+        <div id='map_element' style='width: auto; height: auto; border: solid 0px #999; z-index: 0; margin: 0px 0px 0px 0px;'></div>
+
+        <div class="slick-wrapper col-3" style="position:absolute;bottom:10px">
+            <div class="single-item">
+            </div>
+        </div>
+
+
+        <script>
+            $(function () {
+                var slk = $('.slick-wrapper').get(0);
+
+                console.info(slk);
+
+                $('.leaflet-control-container').append(slk);
+            });
+        </script>
+
+    </div>
+</body>
+</html>

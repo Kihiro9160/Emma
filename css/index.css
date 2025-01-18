@@ -1,0 +1,129 @@
+html {
+  height: 100%;
+}
+
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color:#32383d;
+    font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font-size:12px;
+    height: 100%;
+    padding-bottom: 0;
+}
+
+.app {
+    background: url(../images/cordova.png) no-repeat center top; 
+    background-size: contain;
+    position: absolute;             
+    left: 50%;
+    top: 50%;
+    height: 30px;                  
+    width: 250px;                   
+    text-align: center;
+    padding: 200px 0px 0px 0px;     
+    margin: -125px;
+}
+
+.event {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #FFFFFF;
+    margin: 27px;
+    padding: 4px 0px;
+    text-transform: uppercase;
+    background-color: #696969;
+    animation: fade 3000ms infinite;
+    -webkit-animation: fade 3000ms infinite;
+}
+
+.ready {
+    background-color: #4B946A;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@media screen and (orientation: portrait) {
+}
+
+@media screen and (orientation: landscape) {
+}
+#build-menu-page {
+  left: 0;
+  position: relative;
+}
+
+#build-menu {
+	visibility: visible;
+	z-index: 0;
+	opacity: 1;
+	-webkit-transform: none;
+	display: none;
+	width: 260px;
+  padding: 0;
+  position: static;
+  z-index: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+  left: 0;
+}
+
+.build-menu-animating #build-menu-page {
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+}
+
+.build-menu-animating.build-menu-close #build-menu-page,
+.build-menu-animating.build-menu-open #build-menu-page {
+	-webkit-transition: -webkit-transform 250ms;
+}
+
+.build-menu-animating.build-menu-open #build-menu-page {
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
+.build-menu-animating #build-menu { display: block }
+
+.build-menu-open #build-menu {
+	display: block;
+	-webkit-transition-delay: 0ms, 0ms, 0ms;
+}
+
+.build-menu-open #build-menu,
+.build-menu-close #build-menu {
+	-webkit-transition: -webkit-transform 250ms, opacity 250ms, visibility 0ms 250ms;
+}
+.block {
+    padding: 10px;
+    color: #000;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background: #ffffff;
+    border: 1px #bbb solid;
+        box-shadow: 0 2px 3px 0 #ddd;
+    -moz-box-shadow: 0 2px 3px 0 #ddd;
+    -webkit-box-shadow: 0 2px 3px 0 #ddd;
+}
+
+.slick-wrapper {
+    position: absolute;
+    z-index: 1000;
+    bottom:0px;
+}

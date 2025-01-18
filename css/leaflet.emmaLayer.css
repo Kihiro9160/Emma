@@ -1,0 +1,38 @@
+.focus_glue_layer {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.glue_layer {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 400px;
+    height: 400px;
+    /*border-radius: 400px;*/
+    border-radius: 50%;
+    z-index: 1;
+    background-color:#f1eee8
+}
+
+.focus_layer {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 250px;
+    height: 250px;
+    /*border-radius: 250px;*/
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.circle_layer {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 400px;
+    height: 400px;
+    /*border-radius: 400px;*/
+    border-radius: 50%;
+    z-index: 0;
+}

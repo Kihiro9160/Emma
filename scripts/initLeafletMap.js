@@ -395,7 +395,7 @@ $(function() {
 //ここからバス路線描画機能だよ
 //基本的にhttps://github.com/bbecquet/Leaflet.PolylineOffsetのBus Linesってとこをパクってます。
 //なので一回上のサイトを見てから下を見るとわかりやすいよ！
-	/*var lineWeight = 4;
+	var lineWeight = 4;
 
 	var lineColors = {
 		栄14 : '#947f28',
@@ -488,7 +488,7 @@ $(function() {
 		point : map.latLngToLayerPoint(栄LatLng),
 		zoom : map.getZoom()
 	}).addTo(map);
-	g_GlobalStaticNumber.layer.addLayer(testEmma);*/
+	g_GlobalStaticNumber.layer.addLayer(testEmma);
 
 
 	//右クリックしたらAnimatedMarkerを作成し、それにFocus＋Glueレイヤを追従させる機能（未完）

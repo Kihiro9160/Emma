@@ -398,6 +398,7 @@ $(function() {
 	var lineWeight = 4;
 
 	var lineColors = {
+		test : '#8B52A1',
 		栄14 : '#947f28',
 		幹栄1 : '#e60012',
 		栄15 : '#6c2b3e',

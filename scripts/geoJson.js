@@ -13,6 +13,52 @@ function GeoJson() {
 	this.data =  {
         "type": "FeatureCollection",
         "features": [
+
+
+
+          {
+            "type": "Feature",
+            "properties": {
+              "lines": ['test']
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [[136.89034,35.18358],[136.88984,35.17781],[136.88982,35.16813],[136.89145,35.15965]]//その区間を表す緯度経度たち
+            	  }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "lines": ['test']
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [[136.90591,35.17816],[136.89645,35.17754],[136.88984,35.17774],[136.88609,35.17788],[136.87823,35.17749],[136.86366,35.17758]]//その区間を表す緯度経度たち
+            	  }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "lines": ['test']
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [[136.86396,35.16800],[136.88214,35.16732],[136.88853,35.16811],[136.89182,35.16797],[136.90868,35.16897]]//その区間を表す緯度経度たち
+            	  }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "lines": ['test']
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [[136.87295,35.18213],[136.87287,35.17021],[136.87053,35.15735]]//その区間を表す緯度経度たち
+            	  }
+          },
+
+
+
           {
             "type": "Feature",
             "properties": {
